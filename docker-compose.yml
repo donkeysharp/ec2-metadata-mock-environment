@@ -1,0 +1,15 @@
+version: '3'
+services:
+
+  mock_metadata:
+    image: ec2-metadata-mock
+
+  debug:
+    image: ec2-metadata-debug
+    environment:
+      MOCK_HOSTNAME: mock_metadata
+    command:
+      - sleep
+      - '3600'
+    cap_add:
+      - NET_ADMIN
