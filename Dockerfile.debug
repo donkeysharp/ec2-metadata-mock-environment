@@ -2,6 +2,8 @@ FROM alpine:latest
 
 RUN apk add bash bind-tools iptables
 
+RUN apk add curl
+
 COPY debug-entrypoint.sh /usr/local/bin/entrypoint.sh
 
 RUN chmod 755 /usr/local/bin/entrypoint.sh
