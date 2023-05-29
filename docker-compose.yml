@@ -3,9 +3,15 @@ services:
 
   mock_metadata:
     image: ec2-metadata-mock
+    build:
+      context: .
+      dockerfile: Dockerfile.metadata-mock
 
   debug:
     image: ec2-metadata-debug
+    build:
+      context: .
+      dockerfile: Dockerfile.debug
     environment:
       MOCK_HOSTNAME: mock_metadata
     command:
